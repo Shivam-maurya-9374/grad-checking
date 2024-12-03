@@ -1,0 +1,123 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .input-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .input-group button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-group">
+            <label for="s1">Marks:</label>
+            <input id="s1" type="text" autocomplete="off">
+        </div>
+
+        <div class="input-group">
+            <button type="button" onclick="grade()">Check Grade</button>
+        </div>
+
+        <div class="input-group">
+            <label for="s2">Result:</label>
+            <input id="s2" type="text" readonly>
+        </div>
+
+        <div class="input-group">
+            <label for="s3">Remark:</label>
+            <input id="s3" type="text" readonly>
+        </div>
+    </div>
+
+    
+
+
+    <script>
+        function grade() {
+            let marks = document.getElementById('s1').value;
+            console.log(marks)
+            let Result=""
+            let remark=""
+            if(marks>=90 && marks<=100){
+                Result="grade-A"
+                remark="Excellent !"
+            }
+             else if (marks>=101){
+                Result="Invalid num"
+                remark="not exit !"
+            }
+
+            else if (marks>=80 && marks<90){
+                Result="grade-B"
+                remark="very Good !"
+            }
+
+            else if (marks>=70 && marks<80){
+                Result="grade-C"
+                remark=" Good !"
+            }
+
+            else if (marks>=60 && marks<70){
+                Result="grade-D"
+                remark="keep study!"
+            }
+
+            else if (marks>=50 && marks<60){
+                Result="grade-E"
+                remark=" Need Improvement!"
+            }
+            else if (marks>=0 && marks<50){
+                Result="FAIL"
+                remark="Better luck next time!"
+            }
+            
+
+  document.getElementById("s2").value=Result
+            document.getElementById("s3").value=remark
+            
+            document.getElementById("s1").value=""
+        }
+    </script>
+</body>
+</html>
